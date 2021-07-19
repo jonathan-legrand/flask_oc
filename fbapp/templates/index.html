@@ -19,13 +19,13 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="static/css/bootstrap/bootstrap.min.css">
 
+    <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap/bootstrap.min.css')}}">
     <!-- Theme CSS -->
-    <link rel="stylesheet" href="static/css/freelancer-theme.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/freelancer-theme.min.css')}}">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="static/css/custom.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/custom.css')}}">
 
     <!-- Custom Fonts -->
     <script src="https://use.fontawesome.com/470b91f216.js"></script>
@@ -38,7 +38,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <script src="static/js/jquery/jquery.min.js" charset="utf-8"></script>
+    <script src="{{url_for('static', filename='js/jquery/jquery.min.js')}}" charset="utf-8"></script>
 
 </head>
 
@@ -74,7 +74,7 @@
               <div class="card">
                 <div class="row">
                   <div class="col-sm-3 col-sm-offset-3">
-                      <img class="img-responsive img-circle user_profile" src="static/img/profile.png" id="user_image">
+                      <img class="img-responsive img-circle user_profile" src="{{url_for('static', filename='img/profile.png')}}" id="user_image">
                   </div>
                   <div class="col-sm-3">
                     <h2 id="user_name">Tom</h2>
@@ -126,7 +126,7 @@
 
       window.fbAsyncInit = function() {
         FB.init({
-          appId      : '361509528671253',
+          appId      : '{{config['FB_APP_ID']}}',
           cookie     : true,  // enable cookies to allow the server to access
                               // the session
           xfbml      : true,  // parse social plugins on this page
@@ -179,13 +179,13 @@
     </div>
 
     <!-- Bootstrap Core JavaScript -->
-    <script src="static/js/bootstrap/bootstrap.min.js" charset="utf-8"></script>
+    <script src="{{url_for('static', filename='js/bootstrap/bootstrap.min.js')}}" charset="utf-8"></script>
 
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
 
     <!-- Theme JavaScript -->
-    <script src="static/js/freelancer-theme.min.js" charset="utf-8"></script>
+    <script src="{{url_for('static', filename='js/freelancer-theme.min.js')}}" charset="utf-8"></script>
 
 </body>
 
