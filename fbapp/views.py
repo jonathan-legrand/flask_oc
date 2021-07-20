@@ -18,7 +18,8 @@ def index():
     Tes amis disent d'ailleurs volontiers que tu as du caractère et que tu ne te laisses pas marcher sur les pieds. \
     Un peu hacker sur les bords, tu aimes trouver des solutions à tout problème. \
     N'aurais-tu pas un petit problème d'autorité ? ;-)"
-    return render_template("index.html", user_name="JB", user_image=user_image, description=description)
+    return render_template("index.html", user_name="JB", user_image=user_image, description=description,
+                           blur=True)
 
 
 @app.route('/result/')
@@ -29,7 +30,8 @@ def result():
      Bientôt tu partiras les cheveux au vent sur ton radeau. \
      Tu es aussi un idéaliste chevronné. Quelle chance ! "
     user_image = url_for("static", filename="tmp/cover_111823112767411.jpg")
-    return render_template("result.html", user_name="JB", description=description, user_image=user_image)
+    return render_template("result.html", user_name="JB", description=description, user_image=user_image,
+                           blur=False)
 
 
 if __name__ == "__main__":
