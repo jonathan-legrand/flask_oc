@@ -34,13 +34,13 @@
               <div class="card">
                 <div class="row">
                   <div class="col-sm-3 col-sm-offset-3">
-                      <img class="img-responsive img-circle user_profile" src="{{url_for('static', filename='img/profile.png')}}" id="user_image">
+                      <img class="img-responsive img-circle user_profile" src={{user_image}} id="user_image">
                   </div>
                   <div class="col-sm-3">
-                    <h2 id="user_name">Tom</h2>
+                    <h2 id="user_name">{{user_name}}</h2>
                   </div>
                   <div class="col-sm-12">
-                    <p id="description">Toi, tu n'as pas peur d'être seul ! Les grands espaces et les aventures sont faits pour toi. D'ailleurs, Koh Lanta est ton émission préférée ! Bientôt tu partiras les cheveux au vent sur ton radeau. Tu es aussi un idéaliste chevronné. Quelle chance ! </p>
+                    <p id="description">{{description}}</p>
                   </div>
                 </div>
               </div>
