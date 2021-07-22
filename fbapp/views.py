@@ -43,5 +43,10 @@ def result():
                            blur=False)
 
 
+@app.route('/contents/<int:content_id>/')
+def content(content_id):
+    return "content_id : " + str(content_id)
+
+
 if __name__ == "__main__":
     app.run()
