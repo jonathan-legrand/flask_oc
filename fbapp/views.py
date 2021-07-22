@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for
+from flask import Flask, render_template, url_for, request
 
 app = Flask(__name__)
 
@@ -29,8 +29,17 @@ def result():
      D'ailleurs, Koh Lanta est ton émission préférée ! \
      Bientôt tu partiras les cheveux au vent sur ton radeau. \
      Tu es aussi un idéaliste chevronné. Quelle chance ! "
-    user_image = url_for("static", filename="tmp/cover_111823112767411.jpg")
-    return render_template("result.html", user_name="JB", description=description, user_image=user_image,
+    gender = request.args.get("gender")
+    user_name = request.args.get("first_name")
+    uid = request.args.get("id")
+    #user_image = url_for("static", filename="tmp/cover_111823112767411.jpg")
+    profile_pic = 'http://graph.facebook.com/' + uid + '/picture?type=large'
+    return render_template("result.html",
+                           user_name=user_name,
+                           gender=gender,
+                           description=description,
+                           uid=uid,
+                           user_image=profile_pic,
                            blur=False)
 
 
