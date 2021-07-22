@@ -4,6 +4,7 @@ from .views import app
 import logging as lg
 import enum
 
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 

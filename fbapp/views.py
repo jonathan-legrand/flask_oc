@@ -13,14 +13,25 @@ from .utils import find_content
 @app.route('/')
 @app.route('/index/')
 def index():
-    user_image = url_for("static", filename="img/profile.png")
     description = "Toi, tu sais comment utiliser la console ! \
     Jamais à court d'idées pour réaliser ton objectif, tu es déterminé-e et persévérant-e. \
     Tes amis disent d'ailleurs volontiers que tu as du caractère et que tu ne te laisses pas marcher sur les pieds. \
     Un peu hacker sur les bords, tu aimes trouver des solutions à tout problème. \
     N'aurais-tu pas un petit problème d'autorité ? ;-)"
-    return render_template("index.html", user_name="JB", user_image=user_image, description=description,
-                           blur=True)
+    page_title = request.args.get("page")
+    img = request.args.get("img")
+    if img is None:
+        warning("No image has been specified")
+        img = "tmp/cover_111823112767411.jpg"
+    og_url = url_for("static", filename=img, _external=True)
+    return render_template("index.html",
+                           user_name="JB",
+                           user_image=url_for('static', filename='img/profile.png'),
+                           description=description,
+                           blur=True,
+                           page_title=page_title,
+                           og_url=og_url
+                           )
 
 
 @app.route('/result/')
@@ -30,13 +41,14 @@ def result():
     try:
         description = find_content(gender).description
     except IndexError:
-        warning("Le genre demandé n'est pas dans la base de données")
+        warning("Gender {} is not present in the database".format(gender))
         description = "Tu es unique"
 
-    print(description)
+    # print(description)
     user_name = request.args.get("first_name")
     uid = request.args.get("id")
-    #user_image = url_for("static", filename="tmp/cover_111823112767411.jpg")
+    og_img = "tmp/sample.jpg"
+    og_url = url_for("static", filename=og_img, _external=True)
     profile_pic = 'http://graph.facebook.com/' + uid + '/picture?type=large'
     return render_template("result.html",
                            user_name=user_name,
@@ -44,6 +56,7 @@ def result():
                            description=description,
                            uid=uid,
                            user_image=profile_pic,
+                           og_url=og_url,
                            blur=False)
 
 
