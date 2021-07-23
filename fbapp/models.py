@@ -29,6 +29,7 @@ def init_db():
     db.drop_all()
     db.create_all()
     db.session.add(Content("THIS IS SPARTAAAAAAA!!!", Gender['male']))
+    db.session.add(Content("J'aime les tartes", Gender['female']))
     db.session.add(Content("What's your favorite scary movie?", Gender['other']))
     db.session.commit()
     lg.warning('Database initialized!')
