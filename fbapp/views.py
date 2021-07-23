@@ -24,6 +24,7 @@ def index():
         warning("No image has been specified")
         img = "tmp/cover_111823112767411.jpg"
     og_url = url_for("static", filename=img, _external=True)
+    print(img)
     return render_template("index.html",
                            user_name="JB",
                            user_image=url_for('static', filename='img/profile.png'),
