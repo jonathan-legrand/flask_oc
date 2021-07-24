@@ -39,6 +39,8 @@ def index():
 @app.route('/result/')
 def result():
     gender = request.args.get('gender')
+    if gender == "undefined":
+        gender = "other"
     user_name = request.args.get('first_name')
     uid = request.args.get('id')
     profile_pic = 'http://graph.facebook.com/' + uid + '/picture?type=large'
